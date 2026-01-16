@@ -1385,7 +1385,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #ff29cf;
+  background: #7dff66;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3347,6 +3347,24 @@ body.sidebar-active .sidebar-toggle:hover {
   background: #181818 !important;
   transform: scale(1.12) translateX(5px) !important;
   box-shadow: 0 0 15px rgba(255,255,255,0.15), inset 0 0 2px rgba(255,255,255,0.08) !important;
+}
+/* ========== 【新增】移动端悬浮球调整到右下角 ========== */
+@media screen and (max-width: 768px) {
+  .sidebar-toggle {
+    top: auto !important; /* 取消顶部定位 */
+    left: auto !important; /* 取消左侧定位 */
+    bottom: 22px !important; /* 距离底部22px */
+    right: 22px !important; /* 距离右侧22px */
+  }
+  body.sidebar-active .sidebar-toggle {
+    left: auto !important; /* 覆盖原有left值 */
+    right: 22px !important; /* 保持在右侧 */
+    bottom: 22px !important; /* 保持在底部 */
+    transform: scale(1.05) !important; /* 移除原有的translateX，避免偏移 */
+  }
+  body.sidebar-active .sidebar-toggle:hover {
+    transform: scale(1.12) !important; /* 移除translateX，保持右下角放大效果 */
+  }
 }
 /* ========== ✅✅✅ 搜索弹窗 顶部优雅滑入+无瞬移 无修改 ✅✅✅ */
 .search-pop-overlay {
