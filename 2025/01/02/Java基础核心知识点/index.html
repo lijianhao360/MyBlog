@@ -20,25 +20,34 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lijianhao360.github.io","root":"/MyBlog/","images":"/MyBlog/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":480,"width_dual_column":240,"padding":0,"offset":0,"toggle":{"enable":true,"size":"0px","top":"0px"},"display":{"post":["site-overview","post-toc"],"home":["site-overview","categories","tags"],"archive":["site-overview","categories","tags"]},"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-light"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true},"fold":{"enable":false},"language":false},"bookmark":{"enable":false},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"","storage":true,"lazyload":false,"nav":{}},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/MyBlog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/MyBlog/js/config.js" defer></script>
 
-    <meta name="description" content="一个专注Java&#x2F;Ai技术的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="首页">
-<meta property="og:url" content="https://lijianhao360.github.io/MyBlog/index.html">
+    <meta name="description" content="day-011-注释 注释是在程序指定位置添加的说明性信息 简单理解，就是对代码的一种解释    注释内容不会参与编译和运行,仅仅是对代码的解释说明 2-关键字关键字就是被java赋予了特点涵义的英文单词特点:  关键字的字母全部小写 常用的代码编辑器,针对关键字有特殊的颜色标记,非常直观 如class(用于创建&#x2F;定义一个类,类是Java最基本的组成单元),  3-字面量\t制表符:在打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础核心知识点">
+<meta property="og:url" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="首页">
-<meta property="og:description" content="一个专注Java&#x2F;Ai技术的博客">
+<meta property="og:description" content="day-011-注释 注释是在程序指定位置添加的说明性信息 简单理解，就是对代码的一种解释    注释内容不会参与编译和运行,仅仅是对代码的解释说明 2-关键字关键字就是被java赋予了特点涵义的英文单词特点:  关键字的字母全部小写 常用的代码编辑器,针对关键字有特殊的颜色标记,非常直观 如class(用于创建&#x2F;定义一个类,类是Java最基本的组成单元),  3-字面量\t制表符:在打">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%B3%A8%E9%87%8A.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%86%E7%B1%BB.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E5%B0%8F%E7%BB%93.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5.png">
+<meta property="article:published_time" content="2025-01-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-19T09:28:19.681Z">
 <meta property="article:author" content="JianHao Li">
-<meta property="article:tag" content="技术博客,前端,Java,Hexo,编程">
+<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%B3%A8%E9%87%8A.png">
 
 
-<link rel="canonical" href="https://lijianhao360.github.io/MyBlog/">
+<link rel="canonical" href="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/","path":"2025/01/02/Java基础核心知识点/","title":"Java基础核心知识点"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>首页</title>
+<title>Java基础核心知识点 | 首页</title>
   
 
 
@@ -91,7 +100,7 @@
 
     <a href="/MyBlog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">首页</h1>
+      <p class="site-title">首页</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">分享技术，记录成长</p>
@@ -145,7 +154,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -158,6 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day-01"><span class="nav-text">day-01</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B3%A8%E9%87%8A"><span class="nav-text">1-注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">2-关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-text">3-字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%8F%98%E9%87%8F"><span class="nav-text">4-变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day-02"><span class="nav-text">day-02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">1-基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-text">2-标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5"><span class="nav-text">3-键盘录入</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,11 +226,10 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
+
 
   
-    
-    
 
 
 
@@ -229,7 +238,7 @@
   
 
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     
     <link itemprop="mainEntityOfPage" href="https://lijianhao360.github.io/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
@@ -247,7 +256,7 @@
 
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 首页">
+      <meta itemprop="name" content="Java基础核心知识点 | 首页">
       <meta itemprop="description" content="">
     </span>
 
@@ -255,12 +264,11 @@
       
       <header class="post-header">
         
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
+            Java基础核心知识点
             
-            <a href="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">Java基础核心知识点</a>
-          
-        </h2>
+        </h1>
 
         
         <div class="post-meta-container">
@@ -292,6 +300,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
 
@@ -306,7 +321,101 @@
     <div class="post-body" itemprop="articleBody">
         
         
-      
+        <h1 id="day-01"><a href="#day-01" class="headerlink" title="day-01"></a>day-01</h1><h2 id="1-注释"><a href="#1-注释" class="headerlink" title="1-注释"></a>1-注释</h2><ul>
+<li><strong>注释</strong>是在程序指定位置添加的说明性信息</li>
+<li>简单理解，就是对代码的一种解释</li>
+</ul>
+<!-- # 替换之前的<img>标签，写法如下（不用写文件夹名！）： -->
+<img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%B3%A8%E9%87%8A.png" class="" title="注释分类">
+<p><strong>注释内容不会参与编译和运行,仅仅是对代码的解释说明</strong></p>
+<h2 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2-关键字"></a>2-关键字</h2><p>关键字就是被java赋予了特点涵义的<strong>英文单词</strong><br><strong>特点:</strong></p>
+<ul>
+<li>关键字的字母全部小写</li>
+<li>常用的代码编辑器,针对关键字有特殊的颜色标记,非常直观</li>
+<li>如<strong>class</strong>(用于创建&#x2F;定义一个类,类是Java最基本的组成单元),</li>
+</ul>
+<h2 id="3-字面量"><a href="#3-字面量" class="headerlink" title="3-字面量"></a>3-字面量</h2><p><strong>\t制表符</strong>:在打印的时候，把前面的字符串长度补齐到8，或者8的整数倍，最少补1个，最多补8个<br><br><br>字面量告诉程序员数据在程序中的<strong>书写格式</strong></p>
+<img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%86%E7%B1%BB.png" class="" title="字面量分类">
+<br/>
+<br/>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">zimianliang</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">         <span class="comment">//目标：学会字面量的书写格式。</span></span><br><span class="line">        <span class="comment">//1.整数，小数</span></span><br><span class="line">        System.out.println(<span class="number">23</span>);</span><br><span class="line">        System.out.println(<span class="number">9.8</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.字符：必须单引号围起来，有且仅有一个</span></span><br><span class="line">        System.out.println(<span class="string">&#x27;中&#x27;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;我是&quot;</span>+<span class="string">&#x27;\t&#x27;</span>+<span class="string">&quot;lijianhao&quot;</span>);<span class="comment">// \t表示一个tap键</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是&quot;</span>+<span class="string">&#x27;\n&#x27;</span>+<span class="string">&quot;lijianhao&quot;</span>);<span class="comment">// \n表示换行</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.字符串，双引号</span></span><br><span class="line">        System.out.println(<span class="string">&quot;中国&quot;</span>);<span class="comment">//必须使用双引号围起来</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.布尔类型，真和假</span></span><br><span class="line">        System.out.println(<span class="literal">true</span>);</span><br><span class="line">        System.out.println(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//5，空</span></span><br><span class="line">        System.out.println(<span class="string">&quot;null&quot;</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-变量"><a href="#4-变量" class="headerlink" title="4-变量"></a>4-变量</h2><p><strong>变量</strong>就是在程序执行的过程中有可能发生改变的量(数据)</p>
+<img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F.png" class="" title="变量定义格式">
+
+<br>
+<img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F.png" class="" title="变量定义使用方式">
+
+<p><strong>变量注意事项:</strong><br>1.变量只能存一个值<br>2.变量名不允许重复定义<br>3.一条语句可以定义多个变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span>, e = <span class="number">200</span> , f = <span class="number">300</span>;</span><br></pre></td></tr></table></figure>
+<p>4.变量在使用前一定要进行赋值<br><br></p>
+<img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%8F%98%E9%87%8F%E5%B0%8F%E7%BB%93.png" class="" title="变量小结">
+
+
+<h1 id="day-02"><a href="#day-02" class="headerlink" title="day-02"></a>day-02</h1><h2 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1-基本数据类型"></a>1-基本数据类型</h2><p><strong>基本数据类型概述:</strong><br>Java的数据类型分为两大核心类别：<strong>基本数据类型</strong>（8种）和引用数据类型（如字符串、数组、类等）。</p>
+<p>基本数据类型是Java的基础数据单元，直接存储数据值，特点是占用空间固定、存取速度快。</p>
+<p><strong>基本数据类型分类（8种）：</strong></p>
+<ul>
+<li>数值型:整数型 byte short int long（4种）</li>
+<li>浮点型: float double（2种）</li>
+<li>字符型：char（1种）</li>
+<li>布尔型：boolean（1种）</li>
+</ul>
+
+
+<p><strong>整数型(4种):</strong><br>用于存储整数（正数、负数、0），不同类型占用内存空间不同，取值范围也不同：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用空间</th>
+<th>取值范围</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1字节</td>
+<td>-128 ~ 127</td>
+<td>节省内存（如文件流、网络传输）</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>-32768 ~ 32767</td>
+<td>较少使用，兼容老旧系统</td>
+</tr>
+<tr>
+<td>int（默认）</td>
+<td>4字节</td>
+<td>-2¹⁵ ~ 2¹⁵-1（约±21亿）</td>
+<td>日常整数使用（如计数、编号）</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td>-2⁶³ ~ 2⁶³-1</td>
+<td>存储大数（如时间戳、金额）</td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong> 定义long类型变量时，值末尾需加<code>L</code>（大小写均可，推荐大写）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">short</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手机号超出int范围，必须加L </span></span><br><span class="line"><span class="comment">// 注意： 定义long类型变量时，值末尾需加`L`（大小写均可，推荐大写）</span></span><br><span class="line"><span class="type">long</span> <span class="variable">phone</span> <span class="operator">=</span> <span class="number">13800138000L</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//double</span></span><br><span class="line"><span class="type">double</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">20.2</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-标识符"><a href="#2-标识符" class="headerlink" title="2-标识符"></a>2-标识符</h2><p><strong>标识符的命名规则</strong></p>
+<ul>
+<li>由数字,字母,下划线(_)和美元$组成</li>
+<li>不能以数字开头</li>
+<li>不能是关键字</li>
+<li>区分大小写</li>
+</ul>
+ <br>
+
+<p><strong>软性建议</strong><br><strong>小驼峰命名法：方法,变量</strong><br><strong>规范1:</strong> 标识符是一个单词的时候全部小写<br><strong>eg1:</strong> name<br><br></p>
+<p><strong>规范2:</strong> 标识符由多个单词组成的时候，第一个单词首字母小写，其他单词首字母大写<br><strong>eg2:</strong> firstName</p>
+<p><strong>大驼峰命名法： 类名</strong><br><strong>规范1:</strong> 标识符是一个单词时，首字母大写<br><strong>eg1:</strong> Student<br><br></p>
+<p><strong>规范2:</strong> 标识符是由多个单词组成的时候，每个单词首字母大写<br><strong>eg2:</strong> GoodStudent</p>
+<h2 id="3-键盘录入"><a href="#3-键盘录入" class="headerlink" title="3-键盘录入"></a>3-键盘录入</h2><img src="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5.png" class="" title="步骤">
     </div>
 
     
@@ -316,7 +425,31 @@
     
     <footer class="post-footer">
         
-      
+        
+
+        
+
+        
+
+        
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+  </div>
+</div>
+
+
+        
+          <div class="post-tags">
+              <a href="/MyBlog/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+          </div>
+
+        
+        
+
+
+        
     </footer>
   </article>
 </div>
@@ -325,8 +458,8 @@
 
 
 
-  
 
+    <div class="comments" id="isso-thread"></div>
 </div>
   </main>
 
