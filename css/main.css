@@ -1270,7 +1270,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #a234ff;
+  background: #c240ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3706,56 +3706,173 @@ html {
   margin-bottom: 30px !important;
   letter-spacing: 1px !important;
 }
-/* ===================== 代码块：更大区域+更大文字+基本无空白 ===================== */
-/* 1. 代码块容器：占满宽度+超大文字+极小内边距（基本无空白） */
-.post-content pre {
-  background: #fff !important; /* 保持纯白背景，无灰色 */
-  padding: 8px 10px !important; /* 核心：极小内边距（代码与背景基本无空白） */
-  margin: 18px 0 !important; /* 与正文的间距保留，避免拥挤 */
-  border-radius: 8px !important; /* 轻微圆角保留质感 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; /* 淡阴影弱化视觉空白 */
-  overflow-x: auto !important;
-/* 字体：更大更清晰（比原来大3px） */
+/* ===================== ✅✅✅ 代码块终极修复：满宽显示 + 完美防遮挡 ✅✅✅ ===================== */
+/* 修复逻辑：恢复 width: 100% 以利用所有空间，防止代码被截断 */
+.post-content .highlight,
+.post-content pre,
+.post-content figure.highlight {
+  background: #fff !important; /* 纯白背景 */
+/* ✅ 核心修改：恢复100%宽度，填满整个内容区，不再人为缩窄 */
+  width: 100% !important;
+  max-width: 100% !important; /* 移除最大宽度限制 */
+  margin: 20px 0 !important; /* 上下间距20px，左右无间距 */
+  padding: 12px 15px !important; /* 稍微增加内边距，防止文字紧贴边缘 */
+  border-radius: 10px !important; /* 圆角保持 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06) !important; /* 阴影稍作减淡，更融合 */
+  overflow-x: auto !important; /* 保持横向滚动条，防止长代码破坏布局 */
+/* 字体设置 */
   font-family: "Consolas", "SF Mono", "Menlo", "Monaco", "微软雅黑", monospace !important;
-  font-size: 18px !important; /* 文字放大（原15px→18px） */
-  line-height: 1.7 !important; /* 行高适配大字体，避免行重叠 */
-  width: 100% !important; /* 占满内容区宽度，让代码区域更宽 */
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+  display: block !important;
 }
-/* 2. 代码文本：贴合容器+高亮清晰 */
-.post-content pre > code {
-  background: transparent !important; /* 完全透明，与背景无间隙 */
-  color: inherit !important; /* 继承高亮配色，大字体更清晰 */
+/* 内部代码文字样式 */
+.post-content pre > code,
+.post-content .highlight code {
+  background: transparent !important;
+  color: inherit !important;
   font-family: inherit !important;
-  font-size: inherit !important; /* 继承大字体 */
+  font-size: inherit !important;
   padding: 0 !important;
   margin: 0 !important;
   border: none !important;
+  white-space: pre !important; /* 强制代码不换行，保持格式，配合overflow-x滚动 */
 }
-/* 3. 高亮配色强化（大字体下更醒目） */
-.post-content pre > code .hljs-keyword {
-  color: #e65100 !important; /* 关键字颜色加深，大字体更突出 */
+/* 代码高亮颜色增强 */
+.post-content .hljs-keyword {
+  color: #e65100 !important;
   font-weight: 700 !important;
 }
-.post-content pre > code .hljs-title.function_ {
-  color: #0277bd !important; /* 函数名颜色加深 */
+.post-content .hljs-title.function_ {
+  color: #0277bd !important;
 }
-.post-content pre > code .hljs-string {
-  color: #2e7d32 !important; /* 字符串颜色加深 */
+.post-content .hljs-string {
+  color: #2e7d32 !important;
 }
-.post-content pre > code .hljs-comment {
-  color: #808080 !important; /* 注释颜色稍深，大字体更易读 */
+.post-content .hljs-comment {
+  color: #808080 !important;
   font-style: italic !important;
 }
-.post-content pre > code .hljs-title.class_ {
-  color: #6a1b9a !important; /* 类名颜色加深 */
+.post-content .hljs-title.class_ {
+  color: #6a1b9a !important;
 }
-/* 4. 行内代码同步放大（与代码块风格统一） */
+/* 行内代码样式 (如 `int a`) */
 .post-content :not(pre) > code {
   background: #f5f5f5 !important;
   color: #e65100 !important;
   font-family: inherit !important;
-  font-size: 16px !important; /* 行内代码同步放大（原14px→16px） */
+  font-size: 16px !important;
   padding: 4px 7px !important;
   border-radius: 4px !important;
   border: 1px solid #eee !important;
+}
+/* ========== ✅ 复制按钮 (Copy Button) 智能防遮挡 ========== */
+/* 按钮样式优化 */
+.highlight-wrap .copy-btn,
+.post-content .copy-btn {
+  color: #999 !important;
+  background: #fff !important;
+  border: 1px solid #eee !important;
+  font-size: 14px !important;
+  padding: 4px 8px !important;
+/* 位置微调：靠右显示，但留出一点空隙 */
+  top: 8px !important;
+  right: 8px !important;
+  border-radius: 4px !important;
+  opacity: 0.8 !important;
+  z-index: 10 !important; /* 确保按钮在代码之上 */
+}
+/* 鼠标悬停时按钮变色 */
+.highlight-wrap .copy-btn:hover,
+.post-content .copy-btn:hover {
+  color: #fff !important;
+  background: #007fff !important;
+  border-color: #007fff !important;
+  opacity: 1 !important;
+}
+/* ===================== 📱 移动端终极适配 (仅在手机生效) 📱 ===================== */
+/* ⚠️ 说明：此区块代码必须放在文件最后，以覆盖上面的桌面端设置 */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 85vw !important; /* 宽度改为屏幕的85%，留出一点缝隙点击关闭 */
+    max-width: 360px !important; /* 限制最大宽度 */
+    left: -100% !important; /* 初始状态完全隐藏 */
+    padding: 30px 20px !important; /* 减小内边距 */
+  }
+  body.sidebar-active .sidebar {
+    left: 0 !important;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5) !important; /* 增加阴影，提升层次感 */
+  }
+  .header,
+  .header-inner {
+    width: 94% !important; /* 手机上让导航栏更宽，利用空间 */
+    padding: 10px 15px !important; /* 减小内边距 */
+    top: 10px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 强制不换行 */
+  }
+  .menu {
+    gap: 15px !important;
+  }
+  .menu-item a {
+    font-size: 15px !important;
+  }
+  .menu-item {
+    padding: 6px 10px !important; /* 减小触摸区域背景 */
+  }
+  .header .search {
+    margin-left: 10px !important; /* 缩小左边距 */
+    padding: 6px 10px !important;
+    font-size: 15px !important;
+  }
+  .main {
+    margin-top: 85px !important; /* 减小顶部留白，手机寸土寸金 */
+    padding: 0 10px !important;
+  }
+  .post-content {
+    font-size: 16px !important; /* 手机端16px阅读体验最佳（原18px太大） */
+    line-height: 1.6 !important;
+  }
+  .post-title {
+    font-size: 22px !important;
+    margin-top: 10px !important;
+  }
+  .post-content h1 {
+    font-size: 20px !important;
+  }
+  .post-content h2 {
+    font-size: 18px !important;
+  }
+  .post-content h3 {
+    font-size: 17px !important;
+  }
+  .post-content .highlight,
+  .post-content pre,
+  .post-content figure.highlight {
+    margin: 15px 0 !important;
+    padding: 10px !important;
+    font-size: 14px !important; /* 代码字体调小至14px */
+  }
+  .highlight-wrap .copy-btn,
+  .post-content .copy-btn {
+    top: 5px !important;
+    right: 5px !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+  }
+  .menu-item:hover,
+  .header .search:hover,
+  .tag-cloud a:hover {
+    transform: none !important;
+  }
+  .search-popup {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
 }
