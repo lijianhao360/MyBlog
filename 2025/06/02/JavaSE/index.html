@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/MyBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/MyBlog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/MyBlog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/MyBlog/images/logo.svg" color="#ffffff">
+
+<link rel="stylesheet" href="/MyBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lijianhao360.github.io","root":"/MyBlog/","images":"/MyBlog/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":480,"width_dual_column":240,"padding":0,"offset":0,"toggle":{"enable":true,"size":"0px","top":"0px"},"display":"always","onmobile":false,"fixed":true,"sidebar_display_list":{"post":["site-overview","post-toc"],"home":["site-overview","categories","tags"],"archive":["site-overview","categories","tags"]}},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-light","dark":"atom-one-light"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true},"fold":{"enable":false},"language":false},"bookmark":{"enable":false},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"","storage":true,"lazyload":false,"nav":{}},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/MyBlog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/MyBlog/js/config.js" defer></script>
+
+    <meta name="description" content="Day 01 - 集合进阶1.双列集合的特点    2.Map集合2.1 Map集合常用API    123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566package com.itheima.a01mym">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSE">
+<meta property="og:url" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/index.html">
+<meta property="og:site_name" content="首页">
+<meta property="og:description" content="Day 01 - 集合进阶1.双列集合的特点    2.Map集合2.1 Map集合常用API    123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566package com.itheima.a01mym">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B9.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B92.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%89%B9%E7%82%B9%E6%80%BB%E7%BB%93.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E5%B8%B8%E8%A7%81API.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E7%AC%AC%E4%B8%80%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E7%AC%AC%E4%BA%8C%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/HashMap%E7%89%B9%E7%82%B9.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/HashMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/HashMap%E6%80%BB%E7%BB%93.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/LinkedHashMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/TreeMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png">
+<meta property="article:published_time" content="2025-06-02T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-23T12:01:35.905Z">
+<meta property="article:author" content="JianHao Li">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B9.png">
+
+
+<link rel="canonical" href="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/","path":"2025/06/02/JavaSE/","title":"JavaSE"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaSE | 首页</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/MyBlog/js/utils.js" defer></script><script src="/MyBlog/js/motion.js" defer></script><script src="/MyBlog/js/sidebar.js" defer></script><script src="/MyBlog/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/MyBlog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/MyBlog/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/MyBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">首页</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">分享技术，记录成长</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/MyBlog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/MyBlog/categories/" rel="section"><i class="fa fa-folder fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/MyBlog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/MyBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-01-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6"><span class="nav-text">Day 01 - 集合进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.双列集合的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Map%E9%9B%86%E5%90%88"><span class="nav-text">2.Map集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Map%E9%9B%86%E5%90%88%E5%B8%B8%E7%94%A8API"><span class="nav-text">2.1 Map集合常用API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Map%E9%9B%86%E5%90%88%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-text">2.2 Map集合遍历方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E7%AC%AC%E4%B8%80%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F-%E9%94%AE%E6%89%BE%E5%80%BC"><span class="nav-text">2.2.1 第一种遍历方式(键找值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F-%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="nav-text">2.2.2 第二种遍历方式(键值对)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HashMap%E9%9B%86%E5%90%88"><span class="nav-text">3.HashMap集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-HashMap%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">3.1 HashMap集合的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-LinkHashMap%E9%9B%86%E5%90%88"><span class="nav-text">4. LinkHashMap集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-TreeMap%E9%9B%86%E5%90%88"><span class="nav-text">5. TreeMap集合</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JianHao Li"
+      src="/MyBlog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JianHao Li</p>
+  <div class="site-description" itemprop="description">一个专注Java/Ai技术的博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/MyBlog/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/MyBlog/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/MyBlog/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lijianhao360/MyBlog" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lijianhao360&#x2F;MyBlog" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2993746016@qq.com" title="邮箱 → mailto:2993746016@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>邮箱</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+
+<div class="post-block">
+  
+  
+
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    
+    <link itemprop="mainEntityOfPage" href="https://lijianhao360.github.io/MyBlog/2025/06/02/JavaSE/">
+
+    
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/MyBlog/images/avatar.png">
+      <meta itemprop="name" content="JianHao Li">
+    </span>
+
+    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="首页">
+      <meta itemprop="description" content="一个专注Java/Ai技术的博客">
+    </span>
+
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaSE | 首页">
+      <meta itemprop="description" content="">
+    </span>
+
+    
+      
+      <header class="post-header">
+        
+        <h1 class="post-title" itemprop="name headline">
+          
+            JavaSE
+            
+        </h1>
+
+        
+        <div class="post-meta-container">
+          
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-02 10:00:00" itemprop="dateCreated datePublished" datetime="2025-06-02T10:00:00+08:00">2025-06-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-23 20:01:35" itemprop="dateModified" datetime="2026-03-23T20:01:35+08:00">2026-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/MyBlog/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+
+          
+        </div>
+      </header>
+
+    
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        
+        
+        <h1 id="Day-01-集合进阶"><a href="#Day-01-集合进阶" class="headerlink" title="Day 01 - 集合进阶"></a>Day 01 - 集合进阶</h1><h2 id="1-双列集合的特点"><a href="#1-双列集合的特点" class="headerlink" title="1.双列集合的特点"></a>1.双列集合的特点</h2><img src="/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B9.png" class="">
+<img src="/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E7%82%B92.png" class="">
+<img src="/MyBlog/2025/06/02/JavaSE/%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E7%89%B9%E7%82%B9%E6%80%BB%E7%BB%93.png" class="">
+
+<h2 id="2-Map集合"><a href="#2-Map集合" class="headerlink" title="2.Map集合"></a>2.Map集合</h2><h3 id="2-1-Map集合常用API"><a href="#2-1-Map集合常用API" class="headerlink" title="2.1 Map集合常用API"></a>2.1 Map集合常用API</h3>
+
+<img src="/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E5%B8%B8%E8%A7%81API.png" class="">
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.a01mymap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A01_MapDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        V put(K key,V value)                添加元素</span></span><br><span class="line"><span class="comment">        V remove(Object key)                根据键删除键值对元素</span></span><br><span class="line"><span class="comment">        void clear()                        移除所有的键值对元素</span></span><br><span class="line"><span class="comment">        boolean containsKey(Object key)     判断集合是否包含指定的键</span></span><br><span class="line"><span class="comment">        boolean containsValue(Object value) 判断集合是否包含指定的值</span></span><br><span class="line"><span class="comment">        boolean isEmpty()                   判断集合是否为空</span></span><br><span class="line"><span class="comment">        int size()                          集合的长度，也就是集合中键值对的个数</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.创建Map集合的对象</span></span><br><span class="line">        Map&lt;String, String&gt; m = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.添加元素</span></span><br><span class="line">        m.put(<span class="string">&quot;郭靖&quot;</span>,<span class="string">&quot;黄蓉&quot;</span>);</span><br><span class="line">        m.put(<span class="string">&quot;韦小宝&quot;</span>,<span class="string">&quot;沐剑屏&quot;</span>);</span><br><span class="line">        m.put(<span class="string">&quot;尹志平&quot;</span>,<span class="string">&quot;小龙女&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> m.put(<span class="string">&quot;韦小宝&quot;</span>, <span class="string">&quot;双儿&quot;</span>);</span><br><span class="line">        System.out.println(value);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.打印集合</span></span><br><span class="line">        System.out.println(m);<span class="comment">//???</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//在添加数据的时候，如果键是存在的，那么会直接把键值对添加到map集合当中，方法返回null</span></span><br><span class="line">        <span class="comment">//在添加数据的时候，如果键是存在的，那么会把原有的键值对象覆盖，会把被覆盖的值进行返回。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//m.put(&quot;郭靖&quot;,&quot;黄蓉&quot;);</span></span><br><span class="line">        <span class="comment">//m.put(&quot;韦小宝&quot;,&quot;沐剑屏&quot;);</span></span><br><span class="line">        <span class="comment">//m.put(&quot;尹志平&quot;,&quot;小龙女&quot;);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//String value2 = m.put(&quot;韦小宝&quot;, &quot;双儿&quot;);</span></span><br><span class="line">        <span class="comment">//System.out.println(value2);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除</span></span><br><span class="line">        <span class="comment">//String result = m.remove(&quot;郭靖&quot;);//黄蓉</span></span><br><span class="line">        <span class="comment">//System.out.println(result);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//清空</span></span><br><span class="line">        <span class="comment">//m.clear();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断是否包含</span></span><br><span class="line">        <span class="comment">/*boolean keyResult = m.containsKey(&quot;郭靖&quot;);</span></span><br><span class="line"><span class="comment">        System.out.println(keyResult);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        boolean valueResult = m.containsValue(&quot;小龙女2&quot;);</span></span><br><span class="line"><span class="comment">        System.out.println(valueResult);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* boolean result = m.isEmpty();</span></span><br><span class="line"><span class="comment">        System.out.println(result);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> m.size();</span><br><span class="line">        System.out.println(size);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.打印集合</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Map集合遍历方式"><a href="#2-2-Map集合遍历方式" class="headerlink" title="2.2 Map集合遍历方式"></a>2.2 Map集合遍历方式</h3><h4 id="2-2-1-第一种遍历方式-键找值"><a href="#2-2-1-第一种遍历方式-键找值" class="headerlink" title="2.2.1 第一种遍历方式(键找值)"></a>2.2.1 第一种遍历方式(键找值)</h4><img src="/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E7%AC%AC%E4%B8%80%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F.png" class="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A02_MapDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 创建并初始化Map集合（所有练习共用同一组数据）</span></span><br><span class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;尹志平&quot;</span>, <span class="string">&quot;小龙女&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;郭靖&quot;</span>, <span class="string">&quot;穆念慈&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;欧阳克&quot;</span>, <span class="string">&quot;黄蓉&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;===== 练习一：增强for循环遍历（键找值） =====&quot;</span>);</span><br><span class="line">        practice1_EnhancedFor(map);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;\n===== 练习二：迭代器遍历（键找值） =====&quot;</span>);</span><br><span class="line">        practice2_Iterator(map);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;\n===== 练习三：Lambda表达式遍历（键找值） =====&quot;</span>);</span><br><span class="line">        practice3_Lambda(map);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 练习一：增强for循环遍历Map（键找值）</span></span><br><span class="line"><span class="comment">     * 核心：keySet()获取所有键 → 增强for遍历键 → get()获取值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">practice1_EnhancedFor</span><span class="params">(Map&lt;String, String&gt; map)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 获取Map中所有键的Set集合</span></span><br><span class="line">        Set&lt;String&gt; keys = map.keySet();</span><br><span class="line">        <span class="comment">// 2. 增强for遍历键集合，逐个获取键</span></span><br><span class="line">        <span class="keyword">for</span> (String key : keys) &#123;</span><br><span class="line">            <span class="comment">// 3. 通过键获取对应的值</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> map.get(key);</span><br><span class="line">            System.out.println(key + <span class="string">&quot; = &quot;</span> + value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 练习二：迭代器遍历Map（键找值）</span></span><br><span class="line"><span class="comment">     * 核心：keySet()获取键集合 → 获取迭代器 → 迭代遍历键 → get()获取值</span></span><br><span class="line"><span class="comment">     * 特点：支持遍历过程中删除元素（迭代器的remove()方法）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">practice2_Iterator</span><span class="params">(Map&lt;String, String&gt; map)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 获取Map中所有键的Set集合</span></span><br><span class="line">        Set&lt;String&gt; keys = map.keySet();</span><br><span class="line">        <span class="comment">// 2. 获取键集合的迭代器对象</span></span><br><span class="line">        Iterator&lt;String&gt; it = keys.iterator();</span><br><span class="line">        <span class="comment">// 3. 迭代遍历：hasNext()判断是否有下一个元素，next()获取下一个键</span></span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> it.next();</span><br><span class="line">            <span class="comment">// 4. 通过键获取对应的值</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> map.get(key);</span><br><span class="line">            System.out.println(key + <span class="string">&quot; = &quot;</span> + value);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 【可选】迭代器独有优势：遍历中安全删除元素（示例：删除&quot;尹志平&quot;）</span></span><br><span class="line">            <span class="comment">// if (&quot;尹志平&quot;.equals(key)) &#123;</span></span><br><span class="line">            <span class="comment">//     it.remove(); // 注意：不能用map.remove()，会触发ConcurrentModificationException</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 练习三：Lambda表达式遍历Map（键找值）</span></span><br><span class="line"><span class="comment">     * 写法1：遍历keySet + Lambda（贴合&quot;键找值&quot;要求）</span></span><br><span class="line"><span class="comment">     * 写法2：Map直接forEach（更简洁，推荐）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">practice3_Lambda</span><span class="params">(Map&lt;String, String&gt; map)</span> &#123;</span><br><span class="line">        <span class="comment">// 写法1：贴合&quot;键找值&quot;要求 → 先获取键集合，再用forEach+Lambda遍历</span></span><br><span class="line">        Set&lt;String&gt; keys = map.keySet();</span><br><span class="line">        keys.forEach(key -&gt; &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> map.get(key);</span><br><span class="line">            System.out.println(<span class="string">&quot;写法1：&quot;</span> + key + <span class="string">&quot; = &quot;</span> + value);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 写法2：Map自带forEach（更简洁，底层也是键值对遍历）</span></span><br><span class="line">        System.out.println(<span class="string">&quot;--- 写法2（推荐） ---&quot;</span>);</span><br><span class="line">        map.forEach((key, value) -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;写法2：&quot;</span> + key + <span class="string">&quot; = &quot;</span> + value);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-第二种遍历方式-键值对"><a href="#2-2-2-第二种遍历方式-键值对" class="headerlink" title="2.2.2 第二种遍历方式(键值对)"></a>2.2.2 第二种遍历方式(键值对)</h4><img src="/MyBlog/2025/06/02/JavaSE/Map%E9%9B%86%E5%90%88%E7%AC%AC%E4%BA%8C%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F.png" class="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A03_MapDemo3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//Map集合的第二种遍历方式（通过键值对对象Entry遍历）</span></span><br><span class="line">        <span class="comment">//三个课堂练习：</span></span><br><span class="line">        <span class="comment">//练习一： 通过键值对对象进行遍历map集合，要求：装着键值对对象的单列集合使用增强for的形式进行遍历</span></span><br><span class="line">        <span class="comment">//练习二： 通过键值对对象进行遍历map集合，要求：装着键值对对象的单列集合使用迭代器的形式进行遍历</span></span><br><span class="line">        <span class="comment">//练习三： 通过键值对对象进行遍历map集合，要求：装着键值对对象的单列集合使用lambda表达式的形式进行遍历</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.创建Map集合的对象</span></span><br><span class="line">        Map&lt;String,String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.添加元素</span></span><br><span class="line">        <span class="comment">//键：人物的外号</span></span><br><span class="line">        <span class="comment">//值：人物的名字</span></span><br><span class="line">        map.put(<span class="string">&quot;标枪选手&quot;</span>,<span class="string">&quot;马超&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;人物挂件&quot;</span>,<span class="string">&quot;明世隐&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;御龙骑士&quot;</span>,<span class="string">&quot;尹志平&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ============== 练习一：增强for循环遍历entrySet（截图完整实现） ==============</span></span><br><span class="line">        System.out.println(<span class="string">&quot;===== 练习一：增强for遍历（Entry键值对） =====&quot;</span>);</span><br><span class="line">        <span class="comment">//3.1 通过entrySet()获取所有键值对对象，返回Set&lt;Map.Entry&lt;K,V&gt;&gt;集合</span></span><br><span class="line">        Set&lt;Map.Entry&lt;String, String&gt;&gt; entries = map.entrySet();</span><br><span class="line">        <span class="comment">//3.2 增强for遍历entries集合，得到每一个Entry键值对对象</span></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : entries) &#123;</span><br><span class="line">            <span class="comment">//entry 对应每一个键值对，比如：&quot;御龙骑士&quot;=&quot;尹志平&quot;</span></span><br><span class="line">            <span class="comment">//3.3 利用Entry的getKey()、getValue()分别获取键和值</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">            System.out.println(key + <span class="string">&quot;=&quot;</span> + value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ============== 练习二：迭代器遍历entrySet（补充实现） ==============</span></span><br><span class="line">        System.out.println(<span class="string">&quot;\n===== 练习二：迭代器遍历（Entry键值对） =====&quot;</span>);</span><br><span class="line">        <span class="comment">//1. 同样先获取所有Entry键值对的Set集合</span></span><br><span class="line">        Set&lt;Map.Entry&lt;String, String&gt;&gt; entries2 = map.entrySet();</span><br><span class="line">        <span class="comment">//2. 获取Entry集合的迭代器对象</span></span><br><span class="line">        Iterator&lt;Map.Entry&lt;String, String&gt;&gt; it = entries2.iterator();</span><br><span class="line">        <span class="comment">//3. 迭代遍历：hasNext()判断是否有下一个元素，next()获取下一个Entry对象</span></span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            Map.Entry&lt;String, String&gt; entry = it.next();</span><br><span class="line">            <span class="comment">//4. 通过Entry获取键和值</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">            System.out.println(key + <span class="string">&quot;=&quot;</span> + value);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 【可选】迭代器独有优势：遍历中安全删除元素（示例：删除&quot;人物挂件&quot;这个键值对）</span></span><br><span class="line">            <span class="comment">// if (&quot;人物挂件&quot;.equals(key)) &#123;</span></span><br><span class="line">            <span class="comment">//     it.remove(); // 必须用迭代器的remove()，不能用map.remove()，否则会抛并发修改异常</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ============== 练习三：Lambda表达式遍历entrySet（补充实现） ==============</span></span><br><span class="line">        System.out.println(<span class="string">&quot;\n===== 练习三：Lambda表达式遍历（Entry键值对） =====&quot;</span>);</span><br><span class="line">        <span class="comment">//写法1：严格贴合题目要求 → 先获取entrySet集合，再用forEach+Lambda遍历</span></span><br><span class="line">        Set&lt;Map.Entry&lt;String, String&gt;&gt; entries3 = map.entrySet();</span><br><span class="line">        entries3.forEach(entry -&gt; &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">            System.out.println(<span class="string">&quot;写法1：&quot;</span> + key + <span class="string">&quot;=&quot;</span> + value);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//写法2：更简洁的Map自带forEach（本质也是Entry遍历，工程推荐写法）</span></span><br><span class="line">        System.out.println(<span class="string">&quot;--- 写法2（推荐，更简洁） ---&quot;</span>);</span><br><span class="line">        map.forEach((key, value) -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;写法2：&quot;</span> + key + <span class="string">&quot;=&quot;</span> + value);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-HashMap集合"><a href="#3-HashMap集合" class="headerlink" title="3.HashMap集合"></a>3.HashMap集合</h2><h3 id="3-1-HashMap集合的特点"><a href="#3-1-HashMap集合的特点" class="headerlink" title="3.1 HashMap集合的特点"></a>3.1 HashMap集合的特点</h3><img src="/MyBlog/2025/06/02/JavaSE/HashMap%E7%89%B9%E7%82%B9.png" class="">
+<img src="/MyBlog/2025/06/02/JavaSE/HashMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png" class="">
+<img src="/MyBlog/2025/06/02/JavaSE/HashMap%E6%80%BB%E7%BB%93.png" class="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.a06map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A06_HashMapDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        场景1：利用Map集合进行统计（求最大值+获取最大值对应的键）</span></span><br><span class="line"><span class="comment">        需求：统计字符串键对应的整数值，找到最大值，并打印所有值为最大值的键</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">// 1. 创建HashMap集合，键=字符串（如景点/姓名），值=Integer（统计次数/分数）</span></span><br><span class="line">        HashMap&lt;String, Integer&gt; hm = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        hm.put(<span class="string">&quot;A&quot;</span>, <span class="number">10</span>);</span><br><span class="line">        hm.put(<span class="string">&quot;B&quot;</span>, <span class="number">20</span>);</span><br><span class="line">        hm.put(<span class="string">&quot;C&quot;</span>, <span class="number">35</span>);</span><br><span class="line">        hm.put(<span class="string">&quot;D&quot;</span>, <span class="number">25</span>);</span><br><span class="line">        hm.put(<span class="string">&quot;E&quot;</span>, <span class="number">35</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 遍历集合（entrySet方式，键值对遍历）</span></span><br><span class="line">        Set&lt;Map.Entry&lt;String, Integer&gt;&gt; entries = hm.entrySet();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : entries) &#123;</span><br><span class="line">            System.out.println(entry.getKey() + <span class="string">&quot;=&quot;</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 求最大值（遍历Entry集合，逐个比较value）</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">// 初始化最大值为0（因统计值均为正，若为负需调整初始值）</span></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : entries) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">            <span class="keyword">if</span> (count &gt; max) &#123;</span><br><span class="line">                max = count; <span class="comment">// 更新最大值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;最大值：&quot;</span> + max);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;------------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 遍历集合，打印所有值等于最大值的键（去重处理）</span></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : entries) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">            <span class="keyword">if</span> (count == max) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;最大值对应的键：&quot;</span> + entry.getKey());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;========================&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        场景2：利用Map集合进行投票统计（进阶场景）</span></span><br><span class="line"><span class="comment">        需求：模拟80个同学给A/B/C/D投票，统计每个选项的得票结果</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">// 1. 定义投票选项数组</span></span><br><span class="line">        String[] arr = &#123;<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>, <span class="string">&quot;D&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 用ArrayList存储80次投票结果（模拟随机投票）</span></span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">80</span>; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> r.nextInt(arr.length); <span class="comment">// 随机生成0-3的索引</span></span><br><span class="line">            list.add(arr[index]); <span class="comment">// 把投票结果添加到列表</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 定义HashMap统计投票结果（键=选项，值=票数）</span></span><br><span class="line">        HashMap&lt;String, Integer&gt; hm2 = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String name : list) &#123;</span><br><span class="line">            <span class="comment">// 判断当前选项是否已在map中</span></span><br><span class="line">            <span class="keyword">if</span> (hm2.containsKey(name)) &#123;</span><br><span class="line">                <span class="comment">// 存在：获取当前票数，+1后重新放入</span></span><br><span class="line">                <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> hm2.get(name);</span><br><span class="line">                count++;</span><br><span class="line">                hm2.put(name, count);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 不存在：直接放入，票数为1</span></span><br><span class="line">                hm2.put(name, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 打印最终统计结果</span></span><br><span class="line">        Set&lt;Map.Entry&lt;String, Integer&gt;&gt; entrySet2 = hm2.entrySet();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : entrySet2) &#123;</span><br><span class="line">            System.out.println(entry.getKey() + <span class="string">&quot;：&quot;</span> + entry.getValue() + <span class="string">&quot;票&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-LinkHashMap集合"><a href="#4-LinkHashMap集合" class="headerlink" title="4. LinkHashMap集合"></a>4. LinkHashMap集合</h2><img src="/MyBlog/2025/06/02/JavaSE/LinkedHashMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png" class="">
+
+<h2 id="5-TreeMap集合"><a href="#5-TreeMap集合" class="headerlink" title="5. TreeMap集合"></a>5. TreeMap集合</h2><img src="/MyBlog/2025/06/02/JavaSE/TreeMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.png" class="">
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.a02tremap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A02_TreeMapDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        TreeMap集合：基本应用</span></span><br><span class="line"><span class="comment">        需求1：</span></span><br><span class="line"><span class="comment">            键：整数表示id</span></span><br><span class="line"><span class="comment">            值：字符串表示商品名称</span></span><br><span class="line"><span class="comment">            要求1：按照id的升序排列</span></span><br><span class="line"><span class="comment">        要求2：按照id的降序排列</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        核心原理：</span></span><br><span class="line"><span class="comment">        1. Integer、Double默认：按照数字升序排列</span></span><br><span class="line"><span class="comment">        2. String：按照字母ASCII码表对应数字升序排列（如abcdefg...）</span></span><br><span class="line"><span class="comment">        3. 自定义排序：通过TreeMap的带参构造器传入Comparator比较器，自定义比较规则</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.创建集合对象（需求2：按照id的降序排列）</span></span><br><span class="line">        <span class="comment">// 匿名内部类实现Comparator接口，自定义比较规则</span></span><br><span class="line">        TreeMap&lt;Integer, String&gt; tm = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer o1, Integer o2)</span> &#123;</span><br><span class="line">                <span class="comment">//o1：当前要添加的元素</span></span><br><span class="line">                <span class="comment">//o2：表示已经在红黑树中存在的元素</span></span><br><span class="line">                <span class="comment">// return o2 - o1; 实现降序排列（升序为o1 - o2）</span></span><br><span class="line">                <span class="keyword">return</span> o2 - o1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.添加元素</span></span><br><span class="line">        tm.put(<span class="number">5</span>, <span class="string">&quot;可哈利&quot;</span>);</span><br><span class="line">        tm.put(<span class="number">4</span>, <span class="string">&quot;雷碧&quot;</span>);</span><br><span class="line">        tm.put(<span class="number">3</span>, <span class="string">&quot;九个核桃&quot;</span>);</span><br><span class="line">        tm.put(<span class="number">2</span>, <span class="string">&quot;康帅傅&quot;</span>);</span><br><span class="line">        tm.put(<span class="number">1</span>, <span class="string">&quot;粤利粤&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.打印集合</span></span><br><span class="line">        System.out.println(tm);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>代码核心解析</strong></li>
+<li><strong>1. 运行结果</strong></li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attribute">5</span>=可哈利, <span class="attribute">4</span>=雷碧, <span class="attribute">3</span>=九个核桃, <span class="attribute">2</span>=康帅傅, <span class="attribute">1</span>=粤利粤&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果验证：键<code>5,4,3,2,1</code>严格按照<strong>降序</strong>排列，符合自定义<code>Comparator</code>的规则。</li>
+</ul>
+<ul>
+<li><p><strong>2. 核心机制</strong></p>
+<table>
+<thead>
+<tr>
+<th>代码片段</th>
+<th>核心作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>new TreeMap&lt;&gt;(new Comparator&lt;Integer&gt;()&#123;...&#125;)</code></td>
+<td>传入自定义比较器，覆盖TreeMap默认的升序规则，实现降序</td>
+</tr>
+<tr>
+<td><code>compare(Integer o1, Integer o2)</code></td>
+<td>比较两个键的规则：<br>- <code>o2 - o1</code>：返回正&#x2F;负&#x2F;0，决定元素在红黑树中的位置，实现降序<br>- <code>o1 - o2</code>：默认升序（TreeMap无参构造器的逻辑）</td>
+</tr>
+<tr>
+<td><code>tm.put(...)</code></td>
+<td>TreeMap底层为<strong>红黑树</strong>，会根据比较器的规则对键进行排序存储，而非按插入顺序</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>3. 需求1（升序）的简化写法</strong><br>若需实现<strong>id升序</strong>，直接使用无参构造器即可（无需自定义比较器）：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需求1：升序排列（无参构造器，默认Integer升序）</span></span><br><span class="line">TreeMap&lt;Integer, String&gt; tm = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关键注意点</strong></li>
+</ul>
+<ol>
+<li><strong>比较器的返回值规则</strong>：<ul>
+<li>返回<strong>正数</strong>：o1 &gt; o2 → o2排在o1前面（降序逻辑）；</li>
+<li>返回<strong>负数</strong>：o1 &lt; o2 → o1排在o2前面；</li>
+<li>返回<strong>0</strong>：o1 &#x3D;&#x3D; o2 → 覆盖旧值（和HashMap的put规则一致）。</li>
+</ul>
+</li>
+<li><strong>重复键的处理</strong>：<br>若存入相同id（如<code>tm.put(5, &quot;新可乐&quot;)</code>），会根据比较器判定为重复键，覆盖旧值<code>&quot;可哈利&quot;</code>。</li>
+<li><strong>自定义对象作为键</strong>：<br>若键为自定义对象（如Student），必须重写<code>compare()</code>方法（或让对象实现<code>Comparable</code>接口），否则会抛出<strong>类转换异常</strong>。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    
+    <footer class="post-footer">
+        
+        
+
+        
+
+        
+
+        
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+  </div>
+</div>
+
+
+        
+          <div class="post-tags">
+              <a href="/MyBlog/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+              <a href="/MyBlog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          </div>
+
+        
+        
+
+
+        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/MyBlog/2025/01/02/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="Java基础核心知识点">
+                  <i class="fa fa-angle-left"></i> Java基础核心知识点
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/MyBlog/2026/01/02/%E7%AE%97%E6%B3%95/" rel="next" title="算法练习">
+                  算法练习 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="isso-thread"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+<!-- ✅✅✅ 修复目录跳转延迟 最终版 JS | 仅修改3处卡顿核心 | 其他功能完全保留不变 ✅✅✅ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // ====== 核心元素 & 原版配置 (一丝不改) ======
+    const header = document.querySelector('.header');
+    const headerInner = document.querySelector('.header-inner');
+    const body = document.body;
+    const tocLinks = document.querySelectorAll('.sidebar .post-toc a.toc-link');
+    const searchBtn = document.querySelector('.header .search');
+    const searchOverlay = document.querySelector('.search-pop-overlay');
+    const searchCloseBtn = document.querySelector('.search-popup .fa-times');
+    // ✅ 修改1【核心优化】：精准计算导航栏高度，删除冗余数值，解决滚动计算慢+定位偏差
+    const headerFullHeight = header ? (header.offsetHeight + 8) : 0;
+    let timer = null;
+    const CONFIG = { HIDE_DELAY: 3000, WAKE_AREA_HEIGHT: 120, SCROLL_SPEED: 500 };
+
+    // ====== ✅ 物理级开关 - 给body加类，配合CSS锁死显示+防偏移 ======
+    const openSearch = () => {
+        body.classList.add('search-active');
+        clearTimeout(timer);
+        header?.classList.remove('hide-nav');
+        headerInner?.classList.remove('hide-nav');
+        body.style.overflow = 'auto';
+    };
+    const closeSearch = () => {
+        body.classList.remove('search-active');
+        clearTimeout(timer);
+        timer = setTimeout(hideNav, CONFIG.HIDE_DELAY);
+        body.style.overflow = '';
+    };
+
+    // ====== ✅ 原版隐藏/显示逻辑 一丝不改 ======
+    const hideNav = () => {
+        if(body.classList.contains('search-active')) return;
+        clearTimeout(timer);
+        header?.classList.add('hide-nav');
+        headerInner?.classList.add('hide-nav');
+    };
+    const showNav = () => {
+        clearTimeout(timer);
+        header?.classList.remove('hide-nav');
+        headerInner?.classList.remove('hide-nav');
+        if(!body.classList.contains('search-active')) {
+            timer = setTimeout(hideNav, CONFIG.HIDE_DELAY);
+        }
+    };
+
+    // ====== ✅ 修改2【极致优化】：重构滚动函数，浏览器最高优先级执行，0延迟丝滑无卡顿 ======
+    const smoothScrollTo = (targetId) => {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        const targetTop = target.offsetTop - headerFullHeight;
+        // 强制浏览器优先执行滚动，跳过所有阻塞，瞬间触发，这是根治延迟的核心！
+        window.requestAnimationFrame(() => {
+            window.scrollTo({ top: targetTop, left: 0, behavior: 'smooth' });
+        });
+    };
+
+    // ====== ✅ 绑定所有搜索事件 - 优先级拉满 ======
+    searchBtn?.addEventListener('click', openSearch, { capture: true });
+    searchCloseBtn?.addEventListener('click', closeSearch, { capture: true });
+    searchOverlay?.addEventListener('click', (e) => {
+        if(e.target === searchOverlay) closeSearch();
+    }, { capture: true });
+
+    // ====== ✅ 所有原版监听事件 一丝不改 除了【目录点击事件】 ======
+    document.addEventListener('mousemove', (e) => { e.clientY < CONFIG.WAKE_AREA_HEIGHT && showNav(); });
+    header?.addEventListener('mouseenter', showNav);
+    headerInner?.addEventListener('mouseenter', showNav);
+    header?.addEventListener('mouseleave', hideNav);
+    headerInner?.addEventListener('mouseleave', hideNav);
+    // ✅ 修改3【重中之重】：删除卡顿元凶 hideNav() + 多余配置，这是延迟99%的原因，0延迟核心！
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // 只保留阻止默认锚点跳转，其他全部精简，无任何阻塞
+            smoothScrollTo(link.getAttribute('href').replace('#',''));
+        });
+    });
+    document.addEventListener('sidebar:show', hideNav);
+    document.addEventListener('sidebar:hide', showNav);
+    window.addEventListener('scroll', () => {
+        body.classList.contains('sidebar-active') && hideNav();
+    }, { passive: true });
+
+    // ====== ✅ 页面初始化 一丝不改 ======
+    showNav();
+});
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="isso" type="application/json">{"enable":false}</script>
+<script src="/MyBlog/js/third-party/comments/isso.js" defer></script>
+
+</body>
+</html>
