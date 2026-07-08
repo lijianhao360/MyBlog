@@ -87,8 +87,15 @@
 <meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/readview.png">
 <meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/readview1.png">
 <meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/MVCC%E6%A1%86%E5%9B%BE.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/innoDB%E6%80%BB%E7%BB%93.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysql.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysql%E8%AF%AD%E5%8F%A5.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysqladmin.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysqlshow.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/mysqlimport.png">
+<meta property="og:image" content="https://lijianhao360.github.io/MyBlog/2026/01/02/MySQL/MySQL%E8%BF%9B%E9%98%B6%E7%AF%87%E6%80%BB%E7%BB%93.png">
 <meta property="article:published_time" content="2026-01-02T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-07-07T06:48:36.226Z">
+<meta property="article:modified_time" content="2026-07-08T04:32:00.544Z">
 <meta property="article:author" content="JianHao Li">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="学习笔记">
@@ -222,7 +229,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">MySQL基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-MySQL%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%A6%82%E8%BF%B0"><span class="nav-text">01.MySQL知识体系介绍及概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-SQL"><span class="nav-text">02.SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E5%87%BD%E6%95%B0"><span class="nav-text">03.函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E7%BA%A6%E6%9D%9F"><span class="nav-text">04.约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E7%9A%84SQL%E5%88%9B%E5%BB%BA%E8%AF%AD%E5%8F%A5%E5%8F%82%E8%80%83%EF%BC%88%E6%96%B9%E4%BE%BF%E4%BD%A0%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="nav-text">对应的SQL创建语句参考（方便你直接使用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">05.多表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E7%BB%83%E4%B9%A0"><span class="nav-text">06.多表查询练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E4%BA%8B%E5%8A%A1"><span class="nav-text">06.事务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E7%AF%87"><span class="nav-text">进阶篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-text">1.存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-MySQL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.1 MySQL体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%AE%80%E4%BB%8B"><span class="nav-text">1.2 存储引擎简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.3 存储引擎的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MyISAM-%E5%92%8C-MEMORY"><span class="nav-text">1.4 MyISAM 和 MEMORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9"><span class="nav-text">1.5 存储引擎选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%B4%A2%E5%BC%95"><span class="nav-text">2.索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%B4%A2%E5%BC%95%E6%A6%82%E8%BF%B0"><span class="nav-text">2.1 索引概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84"><span class="nav-text">2.2 索引结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="nav-text">2.3 索引分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E7%B4%A2%E5%BC%95%E8%AF%AD%E6%B3%95"><span class="nav-text">2.4 索引语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-SQL%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-text">2.5 SQL性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="nav-text">2.6 索引使用规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E6%83%85%E5%86%B5"><span class="nav-text">2.7 索引失效情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-SQL%E6%8F%90%E7%A4%BA"><span class="nav-text">2.8 SQL提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%E5%92%8C%E5%9B%9E%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">2.9 覆盖索引和回表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="nav-text">2.10 前缀索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95%E5%92%8C%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="nav-text">2.11 单列索引和联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-text">2.12 索引设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-13-%E7%B4%A2%E5%BC%95%E6%80%BB%E7%BB%93"><span class="nav-text">2.13.索引总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="nav-text">3.索引优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%8F%92%E5%85%A5%E4%BC%98%E5%8C%96"><span class="nav-text">3.1.插入优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E4%B8%BB%E9%94%AE%E4%BC%98%E5%8C%96"><span class="nav-text">3.2.主键优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-order-by%E4%BC%98%E5%8C%96"><span class="nav-text">3.3.order by优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-group-by-%E4%BC%98%E5%8C%96"><span class="nav-text">3.4 group by 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-limit-%E4%BC%98%E5%8C%96"><span class="nav-text">3.5 limit 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-update-%E4%BC%98%E5%8C%96"><span class="nav-text">3.6 update 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E6%80%BB%E7%BB%93"><span class="nav-text">3.7 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A7%86%E5%9B%BE-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4.视图&#x2F;存储过程&#x2F;触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E8%A7%86%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">4.1视图介绍及基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%A3%80%E6%9F%A5%E9%80%89%E9%A1%B9-cascaded%E5%92%8Clocal"><span class="nav-text">4.2 检查选项(cascaded和local)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="nav-text">4.3 视图更新及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E8%A7%86%E5%9B%BE%E6%A1%88%E4%BE%8B"><span class="nav-text">4.4 视图案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">4.5 存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E5%AD%98%E5%82%A8%E5%87%BD%E6%95%B0"><span class="nav-text">4.6 存储函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4.7 触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%94%81"><span class="nav-text">5.锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E9%94%81%E6%A6%82%E8%BF%B0"><span class="nav-text">5.1 锁概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-text">5.2 全局锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="nav-text">5.3 表级锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E8%A1%8C%E7%BA%A7%E9%94%81"><span class="nav-text">5.4 行级锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-inniDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-text">6.inniDB存储引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">1.逻辑存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-innoDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84"><span class="nav-text">2.innoDB存储引擎架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BA%8B%E5%8A%A1%E5%8E%9F%E7%90%86"><span class="nav-text">3.事务原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-MVCC"><span class="nav-text">4.MVCC</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">MySQL基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-MySQL%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%A6%82%E8%BF%B0"><span class="nav-text">01.MySQL知识体系介绍及概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-SQL"><span class="nav-text">02.SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E5%87%BD%E6%95%B0"><span class="nav-text">03.函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E7%BA%A6%E6%9D%9F"><span class="nav-text">04.约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E7%9A%84SQL%E5%88%9B%E5%BB%BA%E8%AF%AD%E5%8F%A5%E5%8F%82%E8%80%83%EF%BC%88%E6%96%B9%E4%BE%BF%E4%BD%A0%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="nav-text">对应的SQL创建语句参考（方便你直接使用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">05.多表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E7%BB%83%E4%B9%A0"><span class="nav-text">06.多表查询练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E4%BA%8B%E5%8A%A1"><span class="nav-text">06.事务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E7%AF%87"><span class="nav-text">进阶篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-text">1.存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-MySQL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1.1 MySQL体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%AE%80%E4%BB%8B"><span class="nav-text">1.2 存储引擎简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">1.3 存储引擎的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MyISAM-%E5%92%8C-MEMORY"><span class="nav-text">1.4 MyISAM 和 MEMORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9"><span class="nav-text">1.5 存储引擎选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%B4%A2%E5%BC%95"><span class="nav-text">2.索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%B4%A2%E5%BC%95%E6%A6%82%E8%BF%B0"><span class="nav-text">2.1 索引概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84"><span class="nav-text">2.2 索引结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="nav-text">2.3 索引分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E7%B4%A2%E5%BC%95%E8%AF%AD%E6%B3%95"><span class="nav-text">2.4 索引语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-SQL%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-text">2.5 SQL性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="nav-text">2.6 索引使用规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E6%83%85%E5%86%B5"><span class="nav-text">2.7 索引失效情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-SQL%E6%8F%90%E7%A4%BA"><span class="nav-text">2.8 SQL提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%E5%92%8C%E5%9B%9E%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">2.9 覆盖索引和回表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="nav-text">2.10 前缀索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95%E5%92%8C%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="nav-text">2.11 单列索引和联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-text">2.12 索引设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-13-%E7%B4%A2%E5%BC%95%E6%80%BB%E7%BB%93"><span class="nav-text">2.13.索引总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="nav-text">3.索引优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%8F%92%E5%85%A5%E4%BC%98%E5%8C%96"><span class="nav-text">3.1.插入优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E4%B8%BB%E9%94%AE%E4%BC%98%E5%8C%96"><span class="nav-text">3.2.主键优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-order-by%E4%BC%98%E5%8C%96"><span class="nav-text">3.3.order by优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-group-by-%E4%BC%98%E5%8C%96"><span class="nav-text">3.4 group by 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-limit-%E4%BC%98%E5%8C%96"><span class="nav-text">3.5 limit 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-update-%E4%BC%98%E5%8C%96"><span class="nav-text">3.6 update 优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E6%80%BB%E7%BB%93"><span class="nav-text">3.7 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A7%86%E5%9B%BE-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4.视图&#x2F;存储过程&#x2F;触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E8%A7%86%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">4.1视图介绍及基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%A3%80%E6%9F%A5%E9%80%89%E9%A1%B9-cascaded%E5%92%8Clocal"><span class="nav-text">4.2 检查选项(cascaded和local)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="nav-text">4.3 视图更新及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E8%A7%86%E5%9B%BE%E6%A1%88%E4%BE%8B"><span class="nav-text">4.4 视图案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-text">4.5 存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E5%AD%98%E5%82%A8%E5%87%BD%E6%95%B0"><span class="nav-text">4.6 存储函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4.7 触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%94%81"><span class="nav-text">5.锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E9%94%81%E6%A6%82%E8%BF%B0"><span class="nav-text">5.1 锁概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-text">5.2 全局锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="nav-text">5.3 表级锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E8%A1%8C%E7%BA%A7%E9%94%81"><span class="nav-text">5.4 行级锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-inniDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-text">6.inniDB存储引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">1.逻辑存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-innoDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84"><span class="nav-text">2.innoDB存储引擎架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BA%8B%E5%8A%A1%E5%8E%9F%E7%90%86"><span class="nav-text">3.事务原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-MVCC"><span class="nav-text">4.MVCC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-MySQL%E7%AE%A1%E7%90%86"><span class="nav-text">5.MySQL管理</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -342,7 +349,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-07-07 14:48:36" itemprop="dateModified" datetime="2026-07-07T14:48:36+08:00">2026-07-07</time>
+      <time title="修改时间：2026-07-08 12:32:00" itemprop="dateModified" datetime="2026-07-08T12:32:00+08:00">2026-07-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -4368,6 +4375,357 @@
 <br>
 
 <img src="/MyBlog/2026/01/02/MySQL/MVCC%E6%A1%86%E5%9B%BE.png" class="undo">
+
+<ul>
+<li><strong>6.innoDB总结</strong></li>
+</ul>
+<img src="/MyBlog/2026/01/02/MySQL/innoDB%E6%80%BB%E7%BB%93.png" class="undo">
+
+
+<h2 id="5-MySQL管理"><a href="#5-MySQL管理" class="headerlink" title="5.MySQL管理"></a>5.MySQL管理</h2><ul>
+<li><strong>1.系统数据库</strong><br>MySQL数据库安装完成后，自带了以下四个系统数据库，具体作用如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mysql</td>
+<td>存储MySQL服务器正常运行所需要的各种信息（时区、主从、用户、权限等）</td>
+</tr>
+<tr>
+<td>information_schema</td>
+<td>提供了访问数据库元数据的各种表和视图，包含数据库、表、字段类型及访问权限等</td>
+</tr>
+<tr>
+<td>performance_schema</td>
+<td>为MySQL服务器运行时状态提供了一个底层监控功能，主要用于收集数据库服务器性能参数</td>
+</tr>
+<tr>
+<td>sys</td>
+<td>包含了一系列方便 DBA 和开发人员利用 performance_schema 性能数据库进行性能调优和诊断的视图</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li><p>逐库重点注释（面试考点）</p>
+</li>
+<li><ol>
+<li>mysql 系统库</li>
+</ol>
+</li>
+<li><p>核心：MySQL<strong>权限、账户、全局配置</strong>的底层存储库</p>
+</li>
+<li><p>常用表：</p>
+<ul>
+<li><code>mysql.user</code>：账号、密码、全局权限</li>
+<li><code>mysql.db</code>：库级权限</li>
+<li><code>mysql.tables_priv</code>：表级权限</li>
+<li><code>mysql.time_zone</code>：时区数据、主从复制相关配置</li>
+</ul>
+</li>
+<li><p>考点：删除该库会直接导致MySQL无法启动、登录、权限失效。</p>
+</li>
+<li><ol start="2">
+<li>information_schema（元数据库）</li>
+</ol>
+</li>
+<li><p>元数据定义：描述数据库本身的数据（库名、表名、字段、索引、约束、存储过程等）</p>
+</li>
+<li><p>常用场景：代码自动生成SQL、查询表结构、统计库表数量、判断索引是否存在</p>
+</li>
+<li><p>常用表：</p>
+<ul>
+<li><code>tables</code>：所有表信息</li>
+<li><code>columns</code>：字段信息</li>
+<li><code>key_column_usage</code>：外键、主键索引</li>
+</ul>
+</li>
+<li><p>特点：只读视图，不能修改，重启不会丢失数据。</p>
+</li>
+<li><ol start="3">
+<li>performance_schema（性能底层采集库）</li>
+</ol>
+</li>
+<li><p>底层实时采集MySQL运行时所有行为：锁、SQL语句、IO、事务、线程等待、文件读写等</p>
+</li>
+<li><p>之前讲锁时查询锁的SQL就是用它：<code>performance_schema.data_locks</code></p>
+</li>
+<li><p>适用场景：定位锁等待、慢SQL、IO瓶颈、线程阻塞问题</p>
+</li>
+<li><p>特点：数据是运行时临时采集，重启MySQL数据清空；性能采集会轻微损耗服务器性能。</p>
+</li>
+<li><ol start="4">
+<li>sys 简化诊断库</li>
+</ol>
+</li>
+<li><p>本质：<strong>基于performance_schema封装的一套易用视图</strong>，简化复杂查询，不用手写多表关联</p>
+</li>
+<li><p>常用视图：</p>
+<ul>
+<li><code>sys.schema_unused_indexes</code>：查询无用索引</li>
+<li><code>sys.statement_analysis</code>：统计慢SQL、高频SQL耗时</li>
+<li><code>sys.innodb_lock_waits</code>：直观查看锁等待、死锁信息</li>
+</ul>
+</li>
+<li><p>定位：DBA日常调优首选，大幅简化性能排查SQL编写。</p>
+</li>
+<li><p>面试速记区分</p>
+</li>
+</ul>
+<ol>
+<li>mysql：管账号权限、全局配置；</li>
+<li>information_schema：查表结构、元数据；</li>
+<li>performance_schema：底层原始性能采集；</li>
+<li>sys：封装好的简化性能诊断视图。</li>
+</ol>
+<ul>
+<li><strong>2.常用工具</strong></li>
+</ul>
+<img src="/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysql.png" class="">
+
+<br>
+
+<img src="/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysql%E8%AF%AD%E5%8F%A5.png" class="">
+
+<br>
+
+<img src="/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysqladmin.png" class="">
+
+<br>
+
+<img src="/MyBlog/2026/01/02/MySQL/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7mysqlshow.png" class="">
+
+<br>
+
+<img src="/MyBlog/2026/01/02/MySQL/mysqlimport.png" class="">
+
+<ul>
+<li><strong>3.常用工具总结</strong></li>
+</ul>
+<ul>
+<li>MySQL六大官方命令行工具 完整版面试笔记（含重点考点+可直接运行示例）</li>
+<li>工具总览</li>
+</ul>
+<ol>
+<li>mysql</li>
+<li>mysqladmin</li>
+<li>mysqlbinlog</li>
+<li>mysqlshow</li>
+<li>mysqldump</li>
+<li>mysqlimport &#x2F; source</li>
+</ol>
+<hr>
+<ul>
+<li><ol>
+<li>mysql 客户端交互工具</li>
+</ol>
+</li>
+<li>基础作用<br>MySQL登录交互客户端，支持交互式操作、非交互式一次性执行SQL、批量导入SQL脚本。<br>核心参数 <code>-e</code>：非交互模式执行SQL，执行完成自动退出终端，适合Shell定时脚本。</li>
+<li>核心高频参数</li>
+<li><code>-u</code>：指定登录用户名</li>
+<li><code>-p</code>：输入密码（可直接跟密码，中间无空格，生产不推荐明文）</li>
+<li><code>-h</code>：指定远程MySQL主机IP</li>
+<li><code>-P</code>：指定自定义端口（默认3306）</li>
+<li><code>-e</code>：执行单条&#x2F;多条SQL语句后退出</li>
+<li>面试重点</li>
+</ul>
+<ol>
+<li>适用于Shell脚本自动化巡检、定时统计；</li>
+<li>两种导入SQL方式：Shell重定向、客户端内<code>source</code>；</li>
+<li>远程连接必须开放数据库防火墙与账号远程访问权限。</li>
+</ol>
+<ul>
+<li>实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 非交互执行多条SQL，直接输出结果后退出</span></span><br><span class="line">mysql -uroot -p123456 -e <span class="string">&quot;SELECT VERSION(); SHOW DATABASES;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 远程连接3307端口MySQL并查询表数据</span></span><br><span class="line">mysql -h192.168.1.100 -P3307 -uroot -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Shell层直接导入备份SQL文件</span></span><br><span class="line">mysql -uroot -p test_db &lt; /data/backup/test_backup.sql</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><ol start="2">
+<li>mysqladmin 运维管理工具</li>
+</ol>
+</li>
+<li>基础作用<br>无需进入MySQL交互窗口，直接在系统命令行执行数据库运维、监控、账号、服务管理操作，DBA运维专用工具。</li>
+<li>常用子命令<br><code>ping</code>（检测服务存活）、<code>shutdown</code>（优雅关闭数据库）、<code>password</code>（修改账号密码）、<code>flush-privileges</code>（刷新权限）、<code>processlist</code>（查看连接线程）、<code>status</code>（实时运行状态）</li>
+<li>面试重点</li>
+</ul>
+<ol>
+<li>手动修改<code>mysql.user</code>表权限后，必须执行<code>flush-privileges</code>；使用<code>GRANT</code>授权会自动刷新；</li>
+<li><code>shutdown</code>是优雅关闭，会刷写redo&#x2F;undo日志，比强制kill进程安全；</li>
+<li>适合监控脚本定时探测MySQL服务是否宕机。</li>
+</ol>
+<ul>
+<li>实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 检测MySQL服务是否正常运行</span></span><br><span class="line">mysqladmin -uroot -p ping</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 修改root本地登录密码</span></span><br><span class="line">mysqladmin -uroot -pOldPass123 password <span class="string">&quot;New@Admin123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 优雅关闭MySQL服务</span></span><br><span class="line">mysqladmin -uroot -p shutdown</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 查看当前所有客户端连接、慢线程</span></span><br><span class="line">mysqladmin -uroot -p processlist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 手动刷新账号权限</span></span><br><span class="line">mysqladmin flush-privileges</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><ol start="3">
+<li>mysqlbinlog Binlog二进制日志解析工具</li>
+</ol>
+</li>
+<li>基础作用<br>解析二进制binlog日志文件，用于<strong>误删数据时间点恢复、主从同步故障排查、SQL操作审计</strong>。</li>
+<li>面试核心考点</li>
+</ul>
+<ol>
+<li>Binlog仅记录DDL&#x2F;DML写操作，普通<code>SELECT</code>查询不会记录；</li>
+<li>三种日志格式：statement、row、mixed，row格式可精准恢复单行数据；</li>
+<li>支持按<strong>时间、日志偏移位置</strong>截取日志做精准数据回滚。</li>
+</ol>
+<ul>
+<li>常用参数<br><code>--start-datetime</code>、<code>--stop-datetime</code>：按时间截取日志；<br><code>--start-position</code>、<code>--stop-position</code>：按日志偏移位置截取；<br><code>-v/-vv</code>：展示行级详细修改SQL。</li>
+<li>实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 完整解析binlog，导出为可执行SQL恢复文件</span></span><br><span class="line">mysqlbinlog /var/lib/mysql/binlog.000001 &gt; /data/recover_all.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 指定时间段截取日志（误删数据精准恢复）</span></span><br><span class="line">mysqlbinlog --start-datetime=<span class="string">&quot;2026-07-01 09:00:00&quot;</span> --stop-datetime=<span class="string">&quot;2026-07-01 09:30:00&quot;</span> /var/lib/mysql/binlog.000001 &gt; time_recover.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 基于日志偏移位置截取</span></span><br><span class="line">mysqlbinlog --start-position=300 --stop-position=1200 binlog.000001 &gt; pos_recover.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 执行恢复脚本，还原丢失数据</span></span><br><span class="line">mysql -uroot -p &lt; /data/time_recover.sql</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><ol start="4">
+<li>mysqlshow 元数据快速查看工具</li>
+</ol>
+</li>
+<li>基础作用<br>简化<code>SHOW DATABASES / SHOW TABLES / DESC</code>语法，命令行快速查看库、表、字段、索引信息，无需登录交互终端。</li>
+<li>面试场景<br>自动化巡检脚本中统计库表数量、快速核对表结构。</li>
+<li>实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 查看实例下所有数据库</span></span><br><span class="line">mysqlshow -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看test_db库下全部数据表</span></span><br><span class="line">mysqlshow -uroot -p test_db</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 查看test_db库user表字段、主键、索引详情</span></span><br><span class="line">mysqlshow -uroot -p test_db user</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><ol start="5">
+<li>mysqldump 逻辑备份导出工具（面试最高频）</li>
+</ol>
+</li>
+<li>基础作用<br>MySQL标准逻辑备份工具，将库&#x2F;表导出为SQL文本，支持全实例、单库、单表、仅结构&#x2F;仅数据备份；InnoDB依靠MVCC实现无锁在线备份。</li>
+<li>面试必背核心参数<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>面试考点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--single-transaction</code></td>
+<td>InnoDB无锁一致性快照备份</td>
+<td>生产环境必备，RR隔离级依靠MVCC，不阻塞业务读写</td>
+</tr>
+<tr>
+<td><code>--master-data=2</code></td>
+<td>记录备份时binlog偏移位置</td>
+<td>用于搭建主从、时间点完整恢复</td>
+</tr>
+<tr>
+<td><code>--all-databases</code></td>
+<td>导出实例全部数据库</td>
+<td>全量备份使用</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>仅导出表结构，不含数据</td>
+<td>初始化环境脚本</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td>仅导出数据，无建表语句</td>
+<td>增量同步数据</td>
+</tr>
+<tr>
+<td><code>--routines --triggers</code></td>
+<td>备份存储过程、触发器</td>
+<td>容易遗漏的备份项</td>
+</tr>
+</tbody></table>
+</li>
+<li>面试坑点<br><code>--single-transaction</code>仅支持InnoDB引擎；MyISAM不支持快照，会加全局读锁阻塞业务。</li>
+<li>实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 生产标准：InnoDB单库无锁全量备份（含binlog位置）</span></span><br><span class="line">mysqldump -uroot -p --single-transaction --master-data=2 test_db &gt; test_full_backup.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 仅导出库表结构，不导出数据</span></span><br><span class="line">mysqldump -uroot -p -d test_db &gt; test_schema.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 仅导出user表数据，无建表语句</span></span><br><span class="line">mysqldump -uroot -p -t test_db user &gt; user_only_data.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 全实例所有数据库完整备份</span></span><br><span class="line">mysqldump -uroot -p --all-databases --single-transaction &gt; all_db_backup.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 只备份单张业务表</span></span><br><span class="line">mysqldump -uroot -p test_db order &gt; order_backup.sql</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><ol start="6">
+<li>mysqlimport &#x2F; source 数据导入工具<br>分为两类：<code>source</code>（客户端内导入SQL备份）、<code>mysqlimport</code>（命令行批量导入csv&#x2F;txt文本）</li>
+</ol>
+</li>
+<li><p>6.1 source （MySQL交互终端内执行）</p>
+</li>
+<li><p>作用<br>登录mysql客户端后，导入完整<code>.sql</code>备份文件，开发、DBA日常恢复备份最常用。</p>
+</li>
+<li><p>重点注意<br>文件路径不能包含中文、空格；数据库本地文件读取权限需开启。</p>
+</li>
+<li><p>SQL示例</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 登录mysql客户端后执行，导入备份文件</span></span><br><span class="line">source <span class="operator">/</span>data<span class="operator">/</span>backup<span class="operator">/</span>test_full_backup.sql;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>6.2 mysqlimport （命令行批量导入文本）<br> 作用<br>底层等价<code>LOAD DATA INFILE</code>，高速批量导入csv、txt结构化文本，大批量数据导入效率远高于INSERT语句。<br> 实操示例</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将逗号分隔的user.csv文件导入test库user表</span></span><br><span class="line">mysqlimport -uroot -p --fields-terminated-by=, <span class="built_in">test</span> /data/user.csv</span><br></pre></td></tr></table></figure>
+
+<p> 面试区分考点</p>
+<ol>
+<li><code>source</code>：导入完整SQL备份文件（建表、数据、存储过程）；</li>
+<li><code>mysqlimport</code>：只导入纯文本数据文件（csv&#x2F;txt），仅填充已有数据表。</li>
+</ol>
+<hr>
+<ul>
+<li>面试速记汇总表<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>核心定位</th>
+<th>高频使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mysql</td>
+<td>客户端交互</td>
+<td>Shell执行SQL、批量导入SQL脚本</td>
+</tr>
+<tr>
+<td>mysqladmin</td>
+<td>运维管理</td>
+<td>启停数据库、改密码、监控线程、刷新权限</td>
+</tr>
+<tr>
+<td>mysqlbinlog</td>
+<td>Binlog解析</td>
+<td>误删数据恢复、审计写操作、主从故障排查</td>
+</tr>
+<tr>
+<td>mysqlshow</td>
+<td>元数据查询</td>
+<td>脚本快速查看库、表、字段</td>
+</tr>
+<tr>
+<td>mysqldump</td>
+<td>逻辑备份导出</td>
+<td>生产全量&#x2F;单库&#x2F;单表在线备份</td>
+</tr>
+<tr>
+<td>source</td>
+<td>客户端导入</td>
+<td>本地SQL备份文件恢复</td>
+</tr>
+<tr>
+<td>mysqlimport</td>
+<td>文本批量导入</td>
+<td>CSV&#x2F;TXT大批量数据高速入库</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><strong>4.MySQL进阶篇总结</strong></li>
+</ul>
+<img src="/MyBlog/2026/01/02/MySQL/MySQL%E8%BF%9B%E9%98%B6%E7%AF%87%E6%80%BB%E7%BB%93.png" class="">
     </div>
 
     
@@ -4405,13 +4763,13 @@
         
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/MyBlog/2025/06/02/JavaSE/" rel="prev" title="JavaSE">
-                  <i class="fa fa-angle-left"></i> JavaSE
+                <a href="/MyBlog/2026/01/02/%E7%AE%97%E6%B3%95/" rel="prev" title="算法练习">
+                  <i class="fa fa-angle-left"></i> 算法练习
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/MyBlog/2026/01/02/%E7%AE%97%E6%B3%95/" rel="next" title="算法练习">
-                  算法练习 <i class="fa fa-angle-right"></i>
+                <a href="/MyBlog/2026/06/02/leetcode/" rel="next" title="算法">
+                  算法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
